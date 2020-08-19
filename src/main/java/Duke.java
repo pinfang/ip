@@ -1,7 +1,6 @@
 package main.java;
 
 public class Duke {
-
     public static void simpleGreet() {
         System.out.println("_________________________________________");
         System.out.println("Hello! I'm Duke");
