@@ -1,5 +1,7 @@
 package main.java;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Duke {
     public static void greet() {
@@ -15,16 +17,29 @@ public class Duke {
         System.out.println("_________________________________________");
     }
 
-    public static void echo() {
+    public static void printList(List<String> list) {
+        System.out.println("_________________________________________");
+        for (int i = 1; i <= list.size(); i++) {
+            System.out.println(i + ". " + list.get(i-1));
+        }
+        System.out.println("_________________________________________");
+    }
+
+    public static void addTask() {
         Scanner scan = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+
         while (true) {
             String command = scan.nextLine();
             if (command.equals("bye")) {
                 exit();
                 break;
+            } else if (command.equals("list")) {
+                printList(list);
             } else {
+                list.add(command);
                 System.out.println("_________________________________________");
-                System.out.println(command);
+                System.out.println("added: " + command);
                 System.out.println("_________________________________________");
             }
         }
@@ -32,6 +47,6 @@ public class Duke {
 
     public static void main(String[] args) {
         greet();
-        echo();
+        addTask();
     }
 }
