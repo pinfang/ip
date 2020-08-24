@@ -47,8 +47,9 @@ public class Duke {
                 break;
             } else if (command.equals("list")) {
                 printList(list);
-            } else if (command.matches("done\\s\\d")) {
-                int num = command.charAt(command.length() - 1) - '0';
+            } else if (command.matches("done\\s(\\d*)")) {
+                command = command.substring(5);
+                int num = Integer.parseInt(command);
                 list.get(num - 1).isDone = true;
                 done(num, list);
             } else {
