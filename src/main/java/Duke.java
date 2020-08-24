@@ -55,7 +55,6 @@ public class Duke {
             } else {
                 Task t = new Task(command);
                 list.add(t);
-
                 System.out.println("_________________________________________");
                 System.out.println("added: " + command);
                 System.out.println("_________________________________________");
