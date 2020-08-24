@@ -21,7 +21,7 @@ public class Duke {
         System.out.println("_________________________________________");
         for (int i = 1; i <= list.size(); i++) {
             System.out.println(i + "." + "[" + list.get(i-1).getStatusIcon()
-                                + "] " + list.get(i-1).description);
+                    + "] " + list.get(i-1).description);
         }
         System.out.println("_________________________________________");
     }
@@ -30,7 +30,7 @@ public class Duke {
         System.out.println("_________________________________________");
         System.out.println("Nice! I've marked this task as done: ");
         System.out.println(" " + "[" + list.get(num-1).getStatusIcon()
-                            + "] " + list.get(num-1).description);
+                + "] " + list.get(num-1).description);
         System.out.println("_________________________________________");
     }
 
