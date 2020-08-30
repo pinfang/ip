@@ -18,6 +18,7 @@ public class Duke {
 
     public static void printList(List<Task> list) {
         System.out.println("_________________________________________");
+        System.out.println("Here are the tasks in your list:");
         for (int i = 1; i <= list.size(); i++) {
             System.out.println(i + "." + list.get(i-1));
         }
@@ -34,11 +35,15 @@ public class Duke {
     }
 
     public static void done(int index, List<Task> list) {
-        System.out.println("_________________________________________");
-        System.out.println("Nice! I've marked this task as done: ");
-        System.out.println(" " + "[" + list.get(index).getStatusIcon()
-                + "] " + list.get(index).description);
-        System.out.println("_________________________________________");
+        if (index > list.size() - 1) {
+            System.out.println("No such task!");
+        } else {
+            list.get(index).isDone = true;
+            System.out.println("_________________________________________");
+            System.out.println("Nice! I've marked this task as done:");
+            System.out.println(" " + list.get(index));
+            System.out.println("_________________________________________");
+        }
     }
 
     public static void main(String[] args) {
@@ -58,7 +63,6 @@ public class Duke {
             } else if (command.matches("done\\s\\d*")) {
                 command = command.substring(5);
                 int index = Integer.parseInt(command) - 1;
-                list.get(index).isDone = true;
                 done(index, list);
             } else if (command.matches("todo\\s.*")) {
                 command = command.substring(5);
@@ -67,20 +71,17 @@ public class Duke {
             } else if(command.matches("deadline\\s.*")) {
                 command = command.substring(9);
                 String[] arr = command.split("/by",2);
-                command = arr[0] + " (by:" + arr[1] + ")";
-                Task deadline = new Deadline(command);
+                Task deadline = new Deadline(arr[0], arr[1]);
                 addTask(deadline, list);
             } else if (command.matches("event\\s.*")) {
                 command = command.substring(6);
                 String[] arr = command.split("/at",2);
-                command = arr[0] + " (at:" + arr[1] + ")";
-                Task event = new Event(command);
+                // command = arr[0] + " (at:" + arr[1] + ")";
+                Task event = new Event(arr[0], arr[1]);
                 addTask(event, list);
             } else {
-//                Task t = new Task(command);
-//                addTask(t, list);
                 System.out.println("_________________________________________\n"
-                        + "No such command!\n"
+                        + "Error!\n"
                         + "_________________________________________");
             }
         }
