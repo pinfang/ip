@@ -1,0 +1,11 @@
+todo homework
+list
+deadline task /by next fri
+list
+event meeting /at 6pm
+list
+done 2
+list
+done 3
+list
+bye
