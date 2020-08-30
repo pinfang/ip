@@ -66,7 +66,7 @@ public class Duke {
                 done(index, list);
             } else if (command.matches("todo\\s.*")) {
                 command = command.substring(5);
-                Task todo = new ToDo(command);
+                Task todo = new Todo(command);
                 addTask(todo, list);
             } else if(command.matches("deadline\\s.*")) {
                 command = command.substring(9);

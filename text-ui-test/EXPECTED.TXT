@@ -1,0 +1,57 @@
+_________________________________________
+Hello! I'm Duke
+What can I do for you?
+_________________________________________
+_________________________________________
+Got it. I've added this task:
+  [T][✘] homework
+Now you have 1 tasks in the list.
+_________________________________________
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+_________________________________________
+_________________________________________
+Got it. I've added this task:
+  [D][✘] task (by: next fri)
+Now you have 2 tasks in the list.
+_________________________________________
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+2. [D][✘] task (by: next fri)
+_________________________________________
+_________________________________________
+Got it. I've added this task:
+  [E][✘] meeting (at: 6pm)
+Now you have 3 tasks in the list.
+_________________________________________
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+2. [D][✘] task (by: next fri)
+3. [E][✘] meeting (at: 6pm)
+_________________________________________
+_________________________________________
+Nice! I've marked this task as done:
+  [D][✓] task (by: next fri)
+_________________________________________
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+2. [D][✓] task (by: next fri)
+3. [E][✘] meeting (at: 6pm)
+_________________________________________
+_________________________________________
+Nice! I've marked this task as done:
+  [E][✓] meeting (at: 6pm)
+_________________________________________
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+2. [D][✓] task (by: next fri)
+3. [E][✓] meeting (at: 6pm)
+_________________________________________
+_________________________________________
+Bye. Hope to see you again soon!
+_________________________________________
