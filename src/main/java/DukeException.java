@@ -5,16 +5,12 @@ public class DukeException extends Exception {
         this.command = command;
     }
 
-    public String error() {
-        return "_________________________________________\n"
-                + "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n"
-                + "_________________________________________\n";
+    private String error() {
+        return "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n";
     }
 
-    public String inCompleteMessage() {
-        return"_________________________________________\n"
-                + "☹ OOPS!!! The description of a " + command + " cannot be empty.\n"
-                + "_________________________________________\n";
+    private String inCompleteMessage() {
+        return "☹ OOPS!!! The description of a " + command + " cannot be empty.\n";
     }
 
     public String toString() {

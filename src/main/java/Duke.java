@@ -78,15 +78,19 @@ public class Duke {
                 String[] arr = command.split("/by",2);
                 Task deadline = new Deadline(arr[0], arr[1]);
                 addTask(deadline, taskList);
-            } else if (command.matches("event\\s.*")) {
+            } else if (command.matches("event\\s(.*)/at(.*)")) {
                 command = command.substring(6);
-                String[] arr = command.split("/at",2);
-                Task event = new Event(arr[0], arr[1]);
+                String[] commandWords = command.split("/at",2);
+                Task event = new Event(commandWords[0], commandWords[1]);
                 addTask(event, taskList);
             } else {
-                System.out.println("_________________________________________\n"
-                        + "Error!\n"
-                        + "_________________________________________");
+                try {
+                    throw new DukeException(command);
+                } catch (DukeException error) {
+                    System.out.print(error);
+                } finally {
+                    System.out.println("Please enter your task again.");
+                }
             }
         }
     }

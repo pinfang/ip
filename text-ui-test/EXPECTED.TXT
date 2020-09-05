@@ -42,3 +42,10 @@ Here are the tasks in your list:
 2. [D][✓] project (by: Sat)
 3. [E][✘] meeting (at: 5pm)
 _________________________________________
+Please enter your task again.
+_________________________________________
+Here are the tasks in your list:
+1. [T][✘] homework
+2. [D][✓] project (by: Sat)
+3. [E][✘] meeting (at: 5pm)
+_________________________________________
