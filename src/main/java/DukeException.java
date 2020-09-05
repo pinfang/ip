@@ -1,8 +1,12 @@
 public class DukeException extends Exception {
     private String command;
+    private boolean hasTime;
 
     public DukeException(String command) {
         this.command = command;
+        if (!command.contains("/at") || !command.contains("/by")) {
+            hasTime = false;
+        }
     }
 
     private String error() {
@@ -13,12 +17,22 @@ public class DukeException extends Exception {
         return "☹ OOPS!!! The description of a " + command + " cannot be empty.\n";
     }
 
+    private String noTiming() {
+        return "☹ OOPS!!! Please specify a time / date.\n";
+    }
+
     public String toString() {
         String message;
-        if (command.equals("todo") || command.equals("deadline")
-                || command.equals("event") || command.equals("done")) {
+        if (command.equals("todo") || command.equals("done")) {
             message = inCompleteMessage();
-        } else {
+        } else if (command.startsWith("deadline") || command.startsWith("event")) {
+            if (hasTime) {
+                message = inCompleteMessage();
+            } else {
+                message = noTiming();
+            }
+        }
+        else {
             message = error();
         }
         return message;

@@ -75,8 +75,8 @@ public class Duke {
                 addTask(todo, taskList);
             } else if(command.matches("deadline\\s(.*)/by(.*)")) {
                 command = command.substring(9);
-                String[] arr = command.split("/by",2);
-                Task deadline = new Deadline(arr[0], arr[1]);
+                String[] commandWords = command.split("/by",2);
+                Task deadline = new Deadline(commandWords[0], commandWords[1]);
                 addTask(deadline, taskList);
             } else if (command.matches("event\\s(.*)/at(.*)")) {
                 command = command.substring(6);
