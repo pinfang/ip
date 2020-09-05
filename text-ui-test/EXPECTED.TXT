@@ -13,45 +13,32 @@ Here are the tasks in your list:
 _________________________________________
 _________________________________________
 Got it. I've added this task:
-  [D][✘] task (by: next fri)
+  [D][✘] project (by: Sat)
 Now you have 2 tasks in the list.
 _________________________________________
 _________________________________________
 Here are the tasks in your list:
 1. [T][✘] homework
-2. [D][✘] task (by: next fri)
+2. [D][✘] project (by: Sat)
 _________________________________________
 _________________________________________
 Got it. I've added this task:
-  [E][✘] meeting (at: 6pm)
+  [E][✘] meeting (at: 5pm)
 Now you have 3 tasks in the list.
 _________________________________________
 _________________________________________
 Here are the tasks in your list:
 1. [T][✘] homework
-2. [D][✘] task (by: next fri)
-3. [E][✘] meeting (at: 6pm)
+2. [D][✘] project (by: Sat)
+3. [E][✘] meeting (at: 5pm)
 _________________________________________
 _________________________________________
 Nice! I've marked this task as done:
-  [D][✓] task (by: next fri)
+  [D][✓] project (by: Sat)
 _________________________________________
 _________________________________________
 Here are the tasks in your list:
 1. [T][✘] homework
-2. [D][✓] task (by: next fri)
-3. [E][✘] meeting (at: 6pm)
-_________________________________________
-_________________________________________
-Nice! I've marked this task as done:
-  [E][✓] meeting (at: 6pm)
-_________________________________________
-_________________________________________
-Here are the tasks in your list:
-1. [T][✘] homework
-2. [D][✓] task (by: next fri)
-3. [E][✓] meeting (at: 6pm)
-_________________________________________
-_________________________________________
-Bye. Hope to see you again soon!
+2. [D][✓] project (by: Sat)
+3. [E][✘] meeting (at: 5pm)
 _________________________________________

@@ -58,6 +58,7 @@ public class Duke {
 
         while (scan.hasNext()) {
             String command = scan.nextLine();
+            command = command.trim();
 
             if (command.equals("bye")) {
                 exit();
@@ -72,7 +73,7 @@ public class Duke {
                 command = command.substring(5);
                 Task todo = new Todo(command);
                 addTask(todo, taskList);
-            } else if(command.matches("deadline\\s.*")) {
+            } else if(command.matches("deadline\\s(.*)/by(.*)")) {
                 command = command.substring(9);
                 String[] arr = command.split("/by",2);
                 Task deadline = new Deadline(arr[0], arr[1]);
