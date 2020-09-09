@@ -1,3 +1,5 @@
+package duke;
+
 public class DukeException extends Exception {
     private String command;
     private boolean hasTime;
@@ -31,8 +33,7 @@ public class DukeException extends Exception {
             } else {
                 message = noTiming();
             }
-        }
-        else {
+        } else {
             message = error();
         }
         return message;

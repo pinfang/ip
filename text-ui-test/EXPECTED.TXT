@@ -42,6 +42,9 @@ Here are the tasks in your list:
 2. [D][✓] project (by: Sat)
 3. [E][✘] meeting (at: 5pm)
 _________________________________________
+_________________________________________
+☹ OOPS!!! I'm sorry, but I don't know what that means :-(
+_________________________________________
 Please enter your task again.
 _________________________________________
 Here are the tasks in your list:
