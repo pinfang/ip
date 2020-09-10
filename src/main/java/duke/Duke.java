@@ -111,7 +111,7 @@ public class Duke {
                 try {
                     throw new DukeException(command);
                 } catch (DukeException error) {
-                    // System.out.print(error.toString());
+                    System.out.print(error.toString());
                 } finally {
                     System.out.println("Please enter your task again.");
                 }
