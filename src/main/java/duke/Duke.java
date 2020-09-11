@@ -5,6 +5,7 @@ import duke.tasks.Event;
 import duke.tasks.Task;
 import duke.tasks.Todo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -43,6 +44,12 @@ public class Duke {
         System.out.println(" " + t);
         System.out.printf("Now you have %d tasks in the list.\n", list.size());
         System.out.println("_________________________________________");
+
+        try {
+            DukeFile.writeFile(t);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void done(int index, List<Task> list) {
@@ -62,6 +69,7 @@ public class Duke {
         List<Task> taskList = new ArrayList<>();
 
         greet();
+        DukeFile.createFile();
 
         while (scan.hasNext()) {
             String command = scan.nextLine();
