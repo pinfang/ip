@@ -55,6 +55,7 @@ public class Duke {
             System.out.println(" " + list.get(index));
             System.out.println("_________________________________________");
         }
+        DukeFile.editFileContent(list);
     }
 
     public static void deleteTask(int index, List<Task> list) {
@@ -75,6 +76,8 @@ public class Duke {
         List<Task> taskList = new ArrayList<>();
 
         greet();
+        DukeFile.createFile();
+        DukeFile.readFile(taskList);
 
         while (scan.hasNext()) {
             String command = scan.nextLine();
@@ -97,16 +100,19 @@ public class Duke {
                 command = command.substring(5);
                 Task todo = new Todo(command);
                 addTask(todo, taskList);
+                DukeFile.addFileContent("T", command);
             } else if(command.matches("deadline\\s(.*)/by(.*)")) {
                 command = command.substring(9);
                 String[] commandWords = command.split("/by",2);
                 Task deadline = new Deadline(commandWords[0], commandWords[1]);
                 addTask(deadline, taskList);
+                DukeFile.addFileContent("D", commandWords[0], commandWords[1]);
             } else if (command.matches("event\\s(.*)/at(.*)")) {
                 command = command.substring(6);
                 String[] commandWords = command.split("/at",2);
                 Task event = new Event(commandWords[0], commandWords[1]);
                 addTask(event, taskList);
+                DukeFile.addFileContent("E", commandWords[0], commandWords[1]);
             } else {
                 try {
                     throw new DukeException(command);
