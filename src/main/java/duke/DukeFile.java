@@ -1,11 +1,16 @@
 package duke;
 
+import duke.tasks.Deadline;
+import duke.tasks.Event;
 import duke.tasks.Task;
+import duke.tasks.Todo;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class DukeFile {
     private static String filePath = "data";
@@ -33,6 +38,46 @@ public class DukeFile {
         }
     }
 
+    public static void readFile(List<Task> taskList) {
+        File file = new File(fileName);
+
+        try {
+            Scanner scan = new Scanner(file);
+            while (scan.hasNext()) {
+                String content = scan.nextLine();
+                String[] taskTypes = content.split(" \\| ", 3);
+                // System.out.println("?" + taskTypes[2]);
+                switch (taskTypes[0]) {
+                case "T":
+                    Task t = new Todo(taskTypes[2]);
+                    if (taskTypes[1].equals("\u2713")) {
+                        t.isDone = true;
+                    }
+                    taskList.add(t);
+                    break;
+                case "D":
+                    String[] message = taskTypes[2].split("\\|", 2);
+                    Task d = new Deadline(message[0], message[1]);
+                    if (taskTypes[1].equals("\u2713")) {
+                        d.isDone = true;
+                    }
+                    taskList.add(d);
+                    break;
+                case "E":
+                    message = taskTypes[2].split("\\|", 2);
+                    Task e = new Event(message[0], message[1]);
+                    if (taskTypes[1].equals("\u2713")) {
+                        e.isDone = true;
+                    }
+                    taskList.add(e);
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void writeFile(String content) throws IOException {
         FileWriter fw = new FileWriter(fileName);
         fw.write(content + System.lineSeparator());
@@ -45,25 +90,17 @@ public class DukeFile {
         fw.close();
     }
 
-    public static void addFileContent(int numOfTask, String taskType, String detail) {
+    public static void addFileContent(String taskType, String detail) {
         try {
-            if (numOfTask == 1) {
-                writeFile(taskType + " | " + "X" + " | " + detail);
-            } else {
-                appendFile(taskType + " | " + "X" + " | " + detail);
-            }
+            appendFile(taskType + " | " + "\u2718" + " | " + detail);
         } catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    public static void addFileContent(int numOfTask, String taskType, String detail, String time) {
+    public static void addFileContent(String taskType, String detail, String time) {
         try {
-            if (numOfTask == 1) {
-                writeFile(taskType + " | " + "X" + " | " + detail + "|" + time);
-            } else {
-                appendFile(taskType + " | " + "X" + " | " + detail + "|" + time);
-            }
+            appendFile(taskType + " | " + "\u2718" + " | " + detail + "|" + time);
         } catch (IOException e){
             e.printStackTrace();
         }
