@@ -5,7 +5,6 @@ import duke.tasks.Event;
 import duke.tasks.Task;
 import duke.tasks.Todo;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -44,12 +43,6 @@ public class Duke {
         System.out.println(" " + t);
         System.out.printf("Now you have %d tasks in the list.\n", list.size());
         System.out.println("_________________________________________");
-
-        try {
-            DukeFile.writeFile(t);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void done(int index, List<Task> list) {
@@ -62,6 +55,7 @@ public class Duke {
             System.out.println(" " + list.get(index));
             System.out.println("_________________________________________");
         }
+        DukeFile.editFileContent(list);
     }
 
     public static void main(String[] args) {
@@ -88,21 +82,24 @@ public class Duke {
                 command = command.substring(5);
                 Task todo = new Todo(command);
                 addTask(todo, taskList);
+                DukeFile.addFileContent(taskList.size(),"T", command);
             } else if(command.matches("deadline\\s(.*)/by(.*)")) {
                 command = command.substring(9);
                 String[] commandWords = command.split("/by",2);
                 Task deadline = new Deadline(commandWords[0], commandWords[1]);
                 addTask(deadline, taskList);
+                DukeFile.addFileContent(taskList.size(), "D", commandWords[0], commandWords[1]);
             } else if (command.matches("event\\s(.*)/at(.*)")) {
                 command = command.substring(6);
                 String[] commandWords = command.split("/at",2);
                 Task event = new Event(commandWords[0], commandWords[1]);
                 addTask(event, taskList);
+                DukeFile.addFileContent(taskList.size(), "E", commandWords[0], commandWords[1]);
             } else {
                 try {
                     throw new DukeException(command);
                 } catch (DukeException error) {
-                    System.out.print(error);
+                    System.out.print(error.toString());
                 } finally {
                     System.out.println("Please enter your task again.");
                 }
