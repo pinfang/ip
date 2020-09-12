@@ -57,6 +57,19 @@ public class Duke {
         }
     }
 
+    public static void deleteTask(int index, List<Task> list) {
+        if (index > list.size() - 1) {
+            System.out.println("No such task.");
+        } else {
+            System.out.println("_________________________________________");
+            System.out.println("Noted. I've removed this task:");
+            System.out.println(" " + list.get(index));
+            list.remove(index);
+            System.out.printf("Now you have %d tasks in the list.\n", list.size());
+            System.out.println("_________________________________________");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         List<Task> taskList = new ArrayList<>();
@@ -76,6 +89,10 @@ public class Duke {
                 command = command.substring(5);
                 int index = Integer.parseInt(command) - 1;
                 done(index, taskList);
+            } else if (command.matches("delete\\s\\d*")) {
+                command = command.substring(7);
+                int index = Integer.parseInt(command) - 1;
+                deleteTask(index, taskList);
             } else if (command.matches("todo\\s.*")) {
                 command = command.substring(5);
                 Task todo = new Todo(command);
@@ -94,7 +111,7 @@ public class Duke {
                 try {
                     throw new DukeException(command);
                 } catch (DukeException error) {
-                    System.out.print(error);
+                    System.out.print(error.toString());
                 } finally {
                     System.out.println("Please enter your task again.");
                 }
