@@ -69,6 +69,7 @@ public class Duke {
             System.out.printf("Now you have %d tasks in the list.\n", list.size());
             System.out.println("_________________________________________");
         }
+        DukeFile.editFileContent(list);
     }
 
     public static void main(String[] args) {

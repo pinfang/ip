@@ -46,7 +46,7 @@ public class DukeFile {
             while (scan.hasNext()) {
                 String content = scan.nextLine();
                 String[] taskTypes = content.split(" \\| ", 3);
-                // System.out.println("?" + taskTypes[2]);
+
                 switch (taskTypes[0]) {
                 case "T":
                     Task t = new Todo(taskTypes[2]);
@@ -78,13 +78,13 @@ public class DukeFile {
         }
     }
 
-    public static void writeFile(String content) throws IOException {
+    private static void writeFile(String content) throws IOException {
         FileWriter fw = new FileWriter(fileName);
         fw.write(content + System.lineSeparator());
         fw.close();
     }
 
-    public static void appendFile(String content) throws IOException {
+    private static void appendFile(String content) throws IOException {
         FileWriter fw = new FileWriter(fileName, true);
         fw.write(content + System.lineSeparator());
         fw.close();
