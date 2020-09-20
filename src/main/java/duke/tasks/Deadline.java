@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Deadline extends Task {
-    private String date = "";
-    private String time = "";
+    private String date;
+    private String time;
 
     public Deadline(String description, String by) {
         super(description);
