@@ -6,6 +6,7 @@ public class Parser {
     private static final String BYE = "bye";
     private static final String LIST = "list";
     private static final String DONE = "done\\s\\d*";
+    private static final String FIND = "find\\s(.*)";
     private static final String DELETE = "delete\\s\\d*";
     private static final String TODO = "todo\\s.*";
     private static final String DEADLINE = "deadline\\s(.*)/by(.*)";
@@ -20,6 +21,8 @@ public class Parser {
             return new DoneTask(command.substring(5));
         } else if (command.matches(DELETE)) {
             return new DeleteTask(command.substring(7));
+        } else if (command.matches(FIND)) {
+            return new Find(command.substring(5));
         } else if (command.matches(TODO)) {
             return new AddTodo(command.substring(5));
         } else if (command.matches(DEADLINE)) {
