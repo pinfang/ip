@@ -20,7 +20,7 @@ public class DukeException extends Exception {
     }
 
     private String noTiming() {
-        return "☹ OOPS!!! Please specify a time / date.\n";
+        return "☹ OOPS!!! Please specify a date and time.\n";
     }
 
     public String toString() {

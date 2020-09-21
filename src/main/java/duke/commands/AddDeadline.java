@@ -1,8 +1,8 @@
 package duke.commands;
 
-import duke.Storage;
-import duke.TaskList;
-import duke.Ui;
+import duke.*;
+
+import java.time.format.DateTimeParseException;
 
 public class AddDeadline extends Command {
     private String[]  content;
@@ -12,10 +12,14 @@ public class AddDeadline extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        tasks.addDeadline(content[0], content[1]);
-        ui.showAdded(tasks.getTask(), tasks.getSize());
-        storage.addFileContent("D", content[0], content[1]);
+    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+        try {
+            tasks.addDeadline(content[0], content[1]);
+            ui.showAdded(tasks.getTask(), tasks.getSize());
+            storage.addFileContent("D", content[0], content[1]);
+        } catch (DateTimeParseException e) {
+            ui.showError("please enter in yyyy-mm-dd and HHmm format\n");
+        }
     }
 
     public boolean isExit() {
