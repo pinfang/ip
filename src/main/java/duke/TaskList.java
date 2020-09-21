@@ -10,7 +10,6 @@ import java.util.List;
 
 public class TaskList {
     private List<Task> taskList;
-    private static final String ADD_TASK = "Got it. I've added this task:";
 
     public TaskList() {
         taskList = new ArrayList<>();
@@ -25,12 +24,12 @@ public class TaskList {
         taskList.add(todo);
     }
 
-    public void addDeadline(String task, String time) {
+    public void addDeadline(String task, String time) throws DukeException{
         Task deadline = new Deadline(task, time);
         taskList.add(deadline);
     }
 
-    public void addEvent(String task, String time) {
+    public void addEvent(String task, String time) throws DukeException {
         Task event = new Event(task, time);
         taskList.add(event);
     }
