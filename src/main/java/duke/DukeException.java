@@ -15,21 +15,21 @@ public class DukeException extends Exception {
         return "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n";
     }
 
-    private String inCompleteMessage() {
+    private String incompleteMessage() {
         return "☹ OOPS!!! The description of a " + command + " cannot be empty.\n";
     }
 
     private String noTiming() {
-        return "☹ OOPS!!! Please specify a time / date.\n";
+        return "☹ OOPS!!! Please specify a date and time.\n";
     }
 
     public String toString() {
         String message;
         if (command.equals("todo") || command.equals("done")) {
-            message = inCompleteMessage();
+            message = incompleteMessage();
         } else if (command.startsWith("deadline") || command.startsWith("event")) {
             if (hasTime) {
-                message = inCompleteMessage();
+                message = incompleteMessage();
             } else {
                 message = noTiming();
             }

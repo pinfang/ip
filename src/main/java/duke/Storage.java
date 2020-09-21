@@ -9,14 +9,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DukeFile {
-    private static String filePath = "data";
-    private static String fileName = "data/duke.txt";
+public class Storage {
+    private static String fileName = "data/tasks.txt";
 
-    public static void createFile() {
+    public Storage(String filePath) {
         try {
             File directory = new File(filePath);
             boolean isDirectory = directory.mkdir();
@@ -38,8 +38,37 @@ public class DukeFile {
         }
     }
 
-    public static void readFile(List<Task> taskList) {
+    private void writeFile(String content) throws IOException {
+        FileWriter fw = new FileWriter(fileName);
+        fw.write(content + System.lineSeparator());
+        fw.close();
+    }
+
+    private void appendFile(String content) throws IOException {
+        FileWriter fw = new FileWriter(fileName, true);
+        fw.write(content + System.lineSeparator());
+        fw.close();
+    }
+
+    public void addFileContent(String taskType, String detail) {
+        try {
+            appendFile(taskType + " | " + "\u2718" + " | " + detail);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addFileContent(String taskType, String detail, String time) {
+        try {
+            appendFile(taskType + " | " + "\u2718" + " | " + detail + "|" + time);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public List<Task> load() throws DukeException {
         File file = new File(fileName);
+        List<Task> taskList = new ArrayList<>();
 
         try {
             Scanner scan = new Scanner(file);
@@ -71,42 +100,18 @@ public class DukeFile {
                     }
                     taskList.add(e);
                     break;
+                default:
+                    throw new DukeException("loading error");
                 }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        return taskList;
     }
 
-    private static void writeFile(String content) throws IOException {
-        FileWriter fw = new FileWriter(fileName);
-        fw.write(content + System.lineSeparator());
-        fw.close();
-    }
-
-    private static void appendFile(String content) throws IOException {
-        FileWriter fw = new FileWriter(fileName, true);
-        fw.write(content + System.lineSeparator());
-        fw.close();
-    }
-
-    public static void addFileContent(String taskType, String detail) {
-        try {
-            appendFile(taskType + " | " + "\u2718" + " | " + detail);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void addFileContent(String taskType, String detail, String time) {
-        try {
-            appendFile(taskType + " | " + "\u2718" + " | " + detail + "|" + time);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void editFileContent(List<Task> tasks) {
+    public void editFileContent(List<Task> tasks) {
         for (Task task: tasks) {
             String description = task.toString();
             String content = description.substring(8);
