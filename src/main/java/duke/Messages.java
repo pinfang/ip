@@ -11,4 +11,5 @@ public class Messages {
     public static final String LIST_IS_EMPTY = "You have no task in the list.\n";
     public static final String TRY_AGAIN = "Please enter your task again.\n";
     public static final String LOADING_ERROR = "Loading error\n";
+    public static final String FINDING_RESULTS = "Here are the matching tasks in your list:\n";
 }

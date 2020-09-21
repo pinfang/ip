@@ -54,6 +54,14 @@ public class Ui {
         System.out.print(DIVIDER_LINE);
     }
 
+    public void showFindResults(List<Task> results) {
+        System.out.print(DIVIDER_LINE + FINDING_RESULTS);
+        for (int i = 1; i <= results.size(); i++) {
+            System.out.println(i + "." + results.get(i - 1));
+        }
+        System.out.print(DIVIDER_LINE);
+    }
+
     public void showError(String errorMessage) {
         System.out.print(errorMessage);
         System.out.print(TRY_AGAIN);
