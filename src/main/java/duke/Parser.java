@@ -2,6 +2,9 @@ package duke;
 
 import duke.commands.*;
 
+/**
+ * Deals with making sense of the user command
+ */
 public class Parser {
     private static final String BYE = "bye";
     private static final String LIST = "list";
@@ -12,6 +15,11 @@ public class Parser {
     private static final String DEADLINE = "deadline\\s(.*)/by(.*)";
     private static final String EVENT = "event\\s(.*)/at(.*)";
 
+    /**
+     * This method is used to determine type of command that needs to be executed
+     * @param command This is the parameter that contains user command
+     * @return This returns the command that shall be executed
+     */
     public static Command parse(String command) {
         if (command.matches(BYE)) {
             return new Exit();

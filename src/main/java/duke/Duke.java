@@ -2,6 +2,9 @@ package duke;
 
 import duke.commands.Command;
 
+/**
+ * This is a Personal Assistant Chatbot that helps a person to keep track of various tasks.
+ */
 public class Duke {
     private Ui ui;
     private TaskList tasks;

@@ -4,6 +4,9 @@ import duke.*;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Adds a deadline.
+ */
 public class AddDeadline extends Command {
     private String[]  content;
 
@@ -22,6 +25,7 @@ public class AddDeadline extends Command {
         }
     }
 
+    @Override
     public boolean isExit() {
         return false;
     }

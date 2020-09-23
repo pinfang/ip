@@ -7,6 +7,9 @@ import duke.Ui;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Adds an event.
+ */
 public class AddEvent extends Command {
     private String[]  content;
 
@@ -25,6 +28,7 @@ public class AddEvent extends Command {
         }
     }
 
+    @Override
     public boolean isExit() {
         return false;
     }

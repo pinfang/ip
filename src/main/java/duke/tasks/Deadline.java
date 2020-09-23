@@ -7,10 +7,19 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * Creates a Deadline task.
+ */
 public class Deadline extends Task {
     private String date;
     private String time;
 
+    /**
+     * This constructor creates a deadline.
+     * @param description This is the description of the task.
+     * @param by This is the deadline of the task.
+     * @throws DukeException If the date / time format is wrong.
+     */
     public Deadline(String description, String by) throws DukeException {
         super(description);
         by = by.trim();

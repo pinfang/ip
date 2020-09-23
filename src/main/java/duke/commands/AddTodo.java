@@ -4,6 +4,9 @@ import duke.Storage;
 import duke.TaskList;
 import duke.Ui;
 
+/**
+ * Adds a todo.
+ */
 public class AddTodo extends Command {
     private String content;
 
@@ -18,6 +21,7 @@ public class AddTodo extends Command {
         storage.addFileContent("T", content);
     }
 
+    @Override
     public boolean isExit() {
         return false;
     }
