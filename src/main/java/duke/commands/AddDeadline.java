@@ -8,7 +8,7 @@ import java.time.format.DateTimeParseException;
  * Adds a deadline.
  */
 public class AddDeadline extends Command {
-    private String[]  content;
+    private String[] content;
 
     public AddDeadline(String content) {
         this.content = content.split("/by",2);
@@ -21,7 +21,7 @@ public class AddDeadline extends Command {
             ui.showAdded(tasks.getTask(), tasks.getSize());
             storage.addFileContent("D", content[0], content[1]);
         } catch (DateTimeParseException e) {
-            ui.showError("please enter in yyyy-mm-dd and HHmm format\n");
+            ui.showError("please enter in yyyy-mm-dd HHmm format\n");
         }
     }
 

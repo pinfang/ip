@@ -30,7 +30,8 @@ public class DukeException extends Exception {
     @Override
     public String toString() {
         String message;
-        if (command.equals("todo") || command.equals("done")) {
+        if (command.equals("todo") || command.equals("done")
+                || command.equals("deadline") || command.equals("event")) {
             message = incompleteMessage();
         } else if (command.startsWith("deadline") || command.startsWith("event")) {
             if (hasTime) {

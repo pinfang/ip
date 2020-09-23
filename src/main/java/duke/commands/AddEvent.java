@@ -24,7 +24,7 @@ public class AddEvent extends Command {
             ui.showAdded(tasks.getTask(), tasks.getSize());
             storage.addFileContent("E", content[0], content[1]);
         } catch (DateTimeParseException e) {
-            ui.showError("please enter in yyyy-mm-dd and HHmm format\n");
+            ui.showError("please enter in yyyy-mm-dd HHmm format\n");
         }
     }
 
