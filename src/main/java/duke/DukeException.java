@@ -1,5 +1,9 @@
 package duke;
 
+/**
+ * Handles Exceptions.
+ * E.g. wrong commands, missing description of tasks, no date / time for deadlines and event.
+ */
 public class DukeException extends Exception {
     private String command;
     private boolean hasTime;
@@ -23,6 +27,7 @@ public class DukeException extends Exception {
         return "☹ OOPS!!! Please specify a date and time.\n";
     }
 
+    @Override
     public String toString() {
         String message;
         if (command.equals("todo") || command.equals("done")) {
