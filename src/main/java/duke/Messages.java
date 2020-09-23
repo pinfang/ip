@@ -1,5 +1,8 @@
 package duke;
 
+/**
+ * Contains the messages that are shown to the user.
+ */
 public class Messages {
     public static final String DIVIDER_LINE = "_________________________________________\n";
     public static final String WELCOME = "Hello! I'm duke.Duke\nWhat can I do for you?\n";

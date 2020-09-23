@@ -4,11 +4,11 @@ import duke.Storage;
 import duke.TaskList;
 import duke.Ui;
 
+/**
+ * Prints out the task list.
+ */
 public class PrintList extends Command {
-    public PrintList() {
-
-    }
-
+    @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         if (tasks.getSize() > 0) {
             ui.showTaskList(tasks.getTaskList());
@@ -17,6 +17,7 @@ public class PrintList extends Command {
         }
     }
 
+    @Override
     public boolean isExit() {
         return false;
     }

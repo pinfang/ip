@@ -1,10 +1,12 @@
 package duke.commands;
 
-import duke.DukeException;
 import duke.Storage;
 import duke.TaskList;
 import duke.Ui;
 
+/**
+ * Finds tasks that contains the keyword entered by the user.
+ */
 public class Find extends Command {
     private String content;
 
@@ -12,9 +14,12 @@ public class Find extends Command {
         this.content = content;
     }
 
+    @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         ui.showFindResults(tasks.findTask(content));
     }
+
+    @Override
     public boolean isExit() {
         return false;
     }
