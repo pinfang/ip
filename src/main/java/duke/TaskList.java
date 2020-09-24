@@ -44,7 +44,7 @@ public class TaskList {
      * @param time This is the deadline of the task.
      * @throws DukeException If the format of the deadline task is wrong.
      */
-    public void addDeadline(String task, String time) throws DukeException{
+    public void addDeadline(String task, String time) throws DukeException {
         Task deadline = new Deadline(task, time);
         taskList.add(deadline);
     }

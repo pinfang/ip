@@ -19,11 +19,10 @@ public class AddDeadline extends Command {
         try {
             tasks.addDeadline(content[0], content[1]);
             ui.showAdded(tasks.getTask(), tasks.getSize());
-//            storage.addFileContent("D", content[0], content[1]);
+            storage.addFileContent("D", content[0], content[1]);
         } catch (DateTimeParseException e) {
-            ui.showError("please enter in \"yyyy-MM-dd HHmm\" format\n");
+            ui.showError("please enter in correct \"yyyy-MM-dd HHmm\" format\n");
         }
-        storage.addFileContent("D", content[0], content[1]);
     }
 
     @Override

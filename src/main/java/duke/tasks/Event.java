@@ -12,6 +12,7 @@ import java.util.Locale;
  */
 public class Event extends Task {
     private String time;
+    private String[] newTimeFormat;
 
     /**
      * This constructor creates an event.
@@ -26,15 +27,15 @@ public class Event extends Task {
         if (description.trim().isEmpty()) {
             throw new DukeException("event");
         }
+        timeFormat();
     }
 
     @Override
     public String toString() {
-        return " [E]" + super.toString() + "(at: " + timeFormat() + ")";
+        return " [E]" + super.toString() + "(at: " + newTimeFormat[0] + " to " + newTimeFormat[1] + ")";
     }
 
-    private String timeFormat() {
-        String[] newTimeFormat;
+    private void timeFormat() {
         newTimeFormat = this.time.split("\\sto\\s", 2);
 
         LocalDateTime from = LocalDateTime
@@ -46,7 +47,5 @@ public class Event extends Task {
                 .parse(newTimeFormat[1].trim(), DateTimeFormatter.ofPattern("HHmm"));
         newTimeFormat[1] = to.format(DateTimeFormatter
                 .ofPattern("h.mm a").withLocale(Locale.ENGLISH));
-
-        return newTimeFormat[0] + " to " + newTimeFormat[1];
     }
 }

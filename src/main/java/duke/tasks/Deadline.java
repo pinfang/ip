@@ -11,6 +11,7 @@ import java.util.Locale;
  */
 public class Deadline extends Task {
     private String time;
+    private String newTimeFormat;
 
     /**
      * This constructor creates a deadline.
@@ -21,23 +22,22 @@ public class Deadline extends Task {
      */
     public Deadline(String description, String by) throws DukeException {
         super(description);
-        time = by.trim();
+        this.time = by.trim();
         if (description.trim().isEmpty()) {
             throw new DukeException("deadline");
         }
+        timeFormat();
     }
 
     @Override
     public String toString() {
-        return " [D]" + super.toString() + "(by: " + timeFormat() + ")";
+        return " [D]" + super.toString() + "(by: " + newTimeFormat + ")";
     }
 
-    private String timeFormat() {
-        String newTimeFormat;
+    private void timeFormat() {
         LocalDateTime time = LocalDateTime
                 .parse(this.time, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
         newTimeFormat = time.format(DateTimeFormatter
                 .ofPattern("MMM d yyyy, h.mm a").withLocale(Locale.ENGLISH));
-        return newTimeFormat;
     }
 }

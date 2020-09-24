@@ -22,11 +22,11 @@ public class AddEvent extends Command {
         try {
             tasks.addEvent(content[0], content[1]);
             ui.showAdded(tasks.getTask(), tasks.getSize());
-            // storage.addFileContent("E", content[0], content[1]);
+            storage.addFileContent("E", content[0], content[1]);
         } catch (DateTimeParseException e) {
-            ui.showError("please enter in \"yyyy-MM-dd HHmm to HHmm\" format\n");
+            ui.showError("please enter in correct \"yyyy-MM-dd HHmm to HHmm\" format\n");
         }
-        storage.addFileContent("E", content[0], content[1]);
+        // storage.addFileContent("E", content[0], content[1]);
     }
 
     @Override
