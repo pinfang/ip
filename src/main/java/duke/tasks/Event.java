@@ -3,6 +3,7 @@ package duke.tasks;
 import duke.DukeException;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -23,7 +24,7 @@ public class Event extends Task {
         super(description);
         time = at.trim();
         if (description.trim().isEmpty()) {
-            throw new DukeException("deadline");
+            throw new DukeException("event");
         }
     }
 
@@ -33,11 +34,19 @@ public class Event extends Task {
     }
 
     private String timeFormat() {
-        String newTimeFormat;
-        LocalDateTime time = LocalDateTime
-                .parse(this.time, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
-        newTimeFormat = time.format(DateTimeFormatter
+        String[] newTimeFormat;
+        newTimeFormat = this.time.split("\\sto\\s", 2);
+
+        LocalDateTime from = LocalDateTime
+                .parse(newTimeFormat[0], DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+        newTimeFormat[0] = from.format(DateTimeFormatter
                 .ofPattern("MMM d yyyy, h.mm a").withLocale(Locale.ENGLISH));
-        return newTimeFormat;
+
+        LocalTime to = LocalTime
+                .parse(newTimeFormat[1].trim(), DateTimeFormatter.ofPattern("HHmm"));
+        newTimeFormat[1] = to.format(DateTimeFormatter
+                .ofPattern("h.mm a").withLocale(Locale.ENGLISH));
+
+        return newTimeFormat[0] + " to " + newTimeFormat[1];
     }
 }

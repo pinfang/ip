@@ -12,8 +12,8 @@ public class Parser {
     private static final String FIND = "find\\s(.*)";
     private static final String DELETE = "delete\\s\\d*";
     private static final String TODO = "todo\\s.*";
-    private static final String DEADLINE = "deadline\\s(.*)/by(.*)";
-    private static final String EVENT = "event\\s(.*)/at(.*)";
+    private static final String DEADLINE = "deadline\\s(.*)/by\\s(\\d{4}(-\\d{2}){2})\\s(\\d){4}";
+    private static final String EVENT = "event\\s(.*)/at(.*)\\s(\\d{4}(-\\d{2}){2})\\s(\\d){4}\\sto\\s(\\d){4}";
 
     /**
      * This method is used to determine type of command that needs to be executed

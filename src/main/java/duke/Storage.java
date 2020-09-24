@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -169,9 +170,17 @@ public class Storage {
             } else if (description.contains("(at")) {
                 content = content.substring(0, content.length() - 1);
                 String[] dateTimes = content.split("\\(at:\\s", 2);
-                LocalDateTime time = LocalDateTime.parse(dateTimes[1], DateTimeFormatter
+                String[] fromTo = dateTimes[1].split("\\sto\\s", 2);
+
+                LocalDateTime from = LocalDateTime.parse(fromTo[0], DateTimeFormatter
                         .ofPattern("MMM d yyyy, h.mm a").withLocale(Locale.ENGLISH));
-                dateTimes[1] = time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+                fromTo[0] = from.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+
+                LocalTime to = LocalTime.parse(fromTo[1], DateTimeFormatter
+                        .ofPattern("h.mm a").withLocale(Locale.ENGLISH));
+                fromTo[1] = to.format(DateTimeFormatter.ofPattern("HHmm"));
+
+                dateTimes[1] = fromTo[0] + " to " + fromTo[1];
                 content = dateTimes[0] + "| " + dateTimes[1];
             }
 
