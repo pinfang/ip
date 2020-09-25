@@ -26,7 +26,6 @@ public class AddEvent extends Command {
         } catch (DateTimeParseException e) {
             ui.showError("please enter in correct \"yyyy-MM-dd HHmm to HHmm\" format\n");
         }
-        // storage.addFileContent("E", content[0], content[1]);
     }
 
     @Override

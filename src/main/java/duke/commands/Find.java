@@ -11,7 +11,7 @@ public class Find extends Command {
     private String content;
 
     public Find(String content) {
-        this.content = content;
+        this.content = content.trim();
     }
 
     @Override

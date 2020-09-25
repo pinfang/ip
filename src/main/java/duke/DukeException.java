@@ -23,8 +23,12 @@ public class DukeException extends Exception {
         return "☹ OOPS!!! The description of a " + command + " cannot be empty.\n";
     }
 
-    private String noTiming() {
-        return "☹ OOPS!!! Please specify a date and time.\n";
+    private String noTimingDeadline() {
+        return "☹ OOPS!!! Please specify a date and time (yyyy-MM-dd HHmm)\n";
+    }
+
+    private String noTimingEvent() {
+        return "☹ OOPS!!! Please specify start and end time (yyyy-MM-dd HHmm to HHmm).\n";
     }
 
     @Override
@@ -33,13 +37,21 @@ public class DukeException extends Exception {
         if (command.equals("todo") || command.equals("done")
                 || command.equals("deadline") || command.equals("event")) {
             message = incompleteMessage();
-        } else if (command.startsWith("deadline") || command.startsWith("event")) {
+        } else if (command.startsWith("deadline")) {
             if (hasTime) {
                 message = incompleteMessage();
             } else {
-                message = noTiming();
+                message = noTimingDeadline();
             }
-        } else {
+        } else if (command.startsWith("event")) {
+            if (hasTime) {
+                message = incompleteMessage();
+            } else {
+                message = noTimingEvent();
+            }
+        }
+
+            else {
             message = error();
         }
         return message;
