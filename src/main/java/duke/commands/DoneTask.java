@@ -16,7 +16,7 @@ public class DoneTask extends Command {
 
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
-        if (index > tasks.getSize() - 1) {
+        if (index > tasks.getSize() - 1 || index < 0) {
             ui.showError("No such task.\n");
         } else {
             tasks.done(index);

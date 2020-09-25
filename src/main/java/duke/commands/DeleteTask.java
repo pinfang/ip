@@ -16,7 +16,7 @@ public class DeleteTask extends Command {
 
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
-        if (index > tasks.getSize() - 1) {
+        if (index > tasks.getSize() - 1 || index < 0) {
             ui.showError("No such task.\n");
         } else {
             ui.showDeleted(tasks.getTask(), tasks.getSize() - 1);
