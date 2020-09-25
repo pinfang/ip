@@ -11,7 +11,6 @@ import static duke.Messages.*;
  * Deals with interactions with the user
  */
 public class Ui {
-    private Scanner scan;
 
     public Ui() {
     }
@@ -35,7 +34,7 @@ public class Ui {
      * @return This returns a string of command entered by the user.
      */
     public String readCommand() {
-        scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         return scan.nextLine().trim();
     }
 

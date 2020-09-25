@@ -17,3 +17,5 @@ bin/
 text-ui-test/EXPECTED-UNIX.TXT
 /output/
 /data/
+/src/main/java/META-INF/
+/META-INF/
