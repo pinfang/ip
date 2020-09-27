@@ -46,7 +46,8 @@ public class Ui {
      */
     public void showAdded(Task t, int numberOfTasks) {
         System.out.println(DIVIDER_LINE + ADD + " " + t);
-        System.out.printf("Now you have %d tasks in the list.\n", numberOfTasks);
+        System.out.printf("Now you have %d task%s in the list.\n", numberOfTasks
+                , numberOfTasks <= 1 ? "" : "s");
         System.out.print(DIVIDER_LINE);
     }
 
@@ -85,7 +86,8 @@ public class Ui {
      */
     public void showDeleted(Task t, int numberOfTasks) {
         System.out.println(DIVIDER_LINE + DELETE_TASK + " " + t);
-        System.out.printf("Now you have %d tasks in the list.\n", numberOfTasks);
+        System.out.printf("Now you have %d task%s in the list.\n", numberOfTasks
+                , numberOfTasks <= 1 ? "" : "s");
         System.out.print(DIVIDER_LINE);
     }
 

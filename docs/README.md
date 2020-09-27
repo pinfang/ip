@@ -47,13 +47,13 @@ Expected outcome:
 
 ## 3. Done
 
-### `done (index)` - marks task as done.
+### `done (index)` - marks task as done
 
 It will mark a particular task specified by the user as done.
 
 Example of usage:
 
-`Done 2`
+`done 2`
 
 Expected outcome:
 
@@ -63,7 +63,7 @@ Expected outcome:
 
 ## 4. Delete
 
-### `delete (index)` - deletes a task.
+### `delete (index)` - deletes a task
 
 It will delete a particular task specified by the user.
 
@@ -103,7 +103,7 @@ Expected outcome:
 
 ## 6. Todo
 
-### `todo (description)` - add a todo task
+### `todo (description)` - adds a todo task
 
 It will add and save a todo task.
 
@@ -119,7 +119,7 @@ Expected outcome:
 
 `[T][✘] homework`
 
-`Now you have 1 tasks in the list.`
+`Now you have 1 task in the list.`
 
 ## 7. Deadline
 
